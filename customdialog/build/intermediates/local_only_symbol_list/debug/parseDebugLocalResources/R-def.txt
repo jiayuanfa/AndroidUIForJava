@@ -1,0 +1,9 @@
+R_DEF: Internal format may change without notice
+local
+drawable dialog_background
+id btn_negative
+id btn_positive
+id tv_message
+id tv_title
+layout dialog_custom
+string app_name

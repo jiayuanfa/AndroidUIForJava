@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.customdialog-mergeReleaseResources-17:/values-v24/values-v24.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\jiayu\\.gradle\\caches\\8.13\\transforms\\cc45f972709dc6b9d5d186fa2dc77556\\transformed\\appcompat-1.6.1\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "com.example.customdialog-release-19:/values-v24/values-v24.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\jiayu\\.gradle\\caches\\8.13\\transforms\\cc45f972709dc6b9d5d186fa2dc77556\\transformed\\appcompat-1.6.1\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
+                    }
+                }
+            ]
+        }
+    ]
+}

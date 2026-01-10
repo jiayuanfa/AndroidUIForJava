@@ -1,0 +1,6 @@
+[
+    {
+        "merged": "com.example.customtoast-release-19:/drawable-watch-v20/abc_dialog_material_background.xml",
+        "source": "com.example.customtoast-appcompat-1.6.1-11:/drawable-watch-v20/abc_dialog_material_background.xml"
+    }
+]

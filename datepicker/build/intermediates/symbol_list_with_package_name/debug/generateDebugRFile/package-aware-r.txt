@@ -1,0 +1,2 @@
+com.example.datepicker
+string app_name

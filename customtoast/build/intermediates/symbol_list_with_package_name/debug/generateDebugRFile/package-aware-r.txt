@@ -1,0 +1,9 @@
+com.example.customtoast
+drawable toast_error_bg
+drawable toast_info_bg
+drawable toast_success_bg
+drawable toast_warning_bg
+id toast_container
+id tv_message
+layout toast_custom
+string app_name

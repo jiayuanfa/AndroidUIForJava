@@ -41,6 +41,13 @@ configurations.all {
 dependencies {
     implementation libs.androidx.appcompat
     implementation libs.androidx.core
+    
+    // 组件库依赖
+    implementation project(':customdialog')
+    implementation project(':customtoast')
+    implementation project(':datepicker')
+    implementation project(':searchbox')
+    
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core

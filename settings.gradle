@@ -1,5 +1,11 @@
 pluginManagement {
     repositories {
+        // 阿里云镜像（优先）
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        // 官方源（备用）
         google {
             content {
                 includeGroupByRegex("com\\.android.*")
@@ -14,6 +20,11 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        // 阿里云镜像（优先）
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        // 官方源（备用）
         google()
         mavenCentral()
     }
@@ -21,3 +32,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "AndroidUIDemo"
 include ':app'
+include ':customdialog'
+include ':customtoast'
+include ':datepicker'
+include ':searchbox'

@@ -1,0 +1,6 @@
+[
+    {
+        "merged": "com.example.customtoast-release-19:/layout-v26/abc_screen_toolbar.xml",
+        "source": "com.example.customtoast-appcompat-1.6.1-11:/layout-v26/abc_screen_toolbar.xml"
+    }
+]

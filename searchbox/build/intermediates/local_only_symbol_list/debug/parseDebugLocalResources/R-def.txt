@@ -1,0 +1,8 @@
+R_DEF: Internal format may change without notice
+local
+drawable search_box_background
+id btn_clear
+id btn_search
+id et_search
+layout search_box
+string app_name

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/search_box_background"
+    android:padding="8dp"
+    android:gravity="center_vertical">
+
+    <ImageButton
+        android:id="@+id/btn_search"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@android:drawable/ic_menu_search"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="搜索"
+        android:padding="4dp" />
+
+    <EditText
+        android:id="@+id/et_search"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="请输入搜索关键词"
+        android:background="@android:color/transparent"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textSize="14sp"
+        android:singleLine="true"
+        android:imeOptions="actionSearch" />
+
+    <ImageButton
+        android:id="@+id/btn_clear"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="清除"
+        android:padding="4dp"
+        android:visibility="gone" />
+
+</LinearLayout>
+
