@@ -129,6 +129,22 @@
             android:background="#F5F5F5"
             android:layout_marginBottom="24dp" />
 
+        <!-- 刷新RecyclerView测试 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="刷新RecyclerView组件："
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_refresh_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试RefreshRecyclerView"
+            android:layout_marginBottom="24dp" />
+
     </LinearLayout>
 
 </ScrollView>

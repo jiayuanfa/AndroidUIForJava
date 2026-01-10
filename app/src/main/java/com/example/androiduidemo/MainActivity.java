@@ -1,5 +1,6 @@
 package com.example.androiduidemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnToastInfo;
     private Button btnToastWarning;
     private Button btnDatePicker;
+    private Button btnRefreshRecyclerView;
     private TextView tvSelectedDate;
 
     @Override
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         btnToastInfo = findViewById(R.id.btn_toast_info);
         btnToastWarning = findViewById(R.id.btn_toast_warning);
         btnDatePicker = findViewById(R.id.btn_date_picker);
+        btnRefreshRecyclerView = findViewById(R.id.btn_refresh_recycler_view);
         tvSelectedDate = findViewById(R.id.tv_selected_date);
     }
 
@@ -102,6 +105,12 @@ public class MainActivity extends AppCompatActivity {
                         CustomToast.showSuccess(this, "已选择日期: " + date);
                     })
                     .show();
+        });
+        
+        // 刷新RecyclerView测试
+        btnRefreshRecyclerView.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, RefreshRecyclerViewTestActivity.class);
+            startActivity(intent);
         });
     }
 }
