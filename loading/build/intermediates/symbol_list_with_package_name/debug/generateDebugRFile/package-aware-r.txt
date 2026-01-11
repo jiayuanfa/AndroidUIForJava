@@ -1,0 +1,8 @@
+com.example.loading
+color loading_color
+drawable loading_background
+id loading_container
+id progress_bar
+id tv_loading_text
+layout loading_view
+string default_loading_text

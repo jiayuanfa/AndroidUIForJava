@@ -29,6 +29,13 @@
             android:label="RefreshRecyclerView测试"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName=".MainActivity" />
+        
+        <activity
+            android:name=".LoadingTestActivity"
+            android:exported="false"
+            android:label="Loading组件测试"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

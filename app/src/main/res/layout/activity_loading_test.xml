@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading组件测试"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Activity测试区域 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. Activity中显示Loading："
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <Button
+                android:id="@+id/btn_activity_show"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="显示Loading"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_activity_hide"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="隐藏Loading" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_activity_auto_hide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="显示Loading（3秒后自动隐藏）"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Fragment测试区域 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. Fragment中显示Loading："
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#F5F5F5"
+            android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <Button
+                android:id="@+id/btn_fragment_show"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="显示Loading"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_fragment_hide"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="隐藏Loading" />
+
+        </LinearLayout>
+
+        <!-- View/ViewGroup测试区域 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. View/ViewGroup中显示Loading："
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <FrameLayout
+            android:id="@+id/view_test_container"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#E3F2FD"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="这是一个测试View容器"
+                android:textSize="16sp"
+                android:textColor="#1976D2" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <Button
+                android:id="@+id/btn_view_show"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="显示Loading"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_view_hide"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="隐藏Loading" />
+
+        </LinearLayout>
+
+        <!-- 测试说明 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试说明：\n1. 点击显示按钮后，Loading会覆盖在对应区域\n2. 点击隐藏按钮可以手动隐藏Loading\n3. 当Activity进入后台或销毁时，Loading会自动隐藏\n4. 可以测试内存泄露情况"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:background="#F5F5F5"
+            android:padding="12dp" />
+
+    </LinearLayout>
+
+</ScrollView>
+
