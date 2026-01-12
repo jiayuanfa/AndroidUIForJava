@@ -6,11 +6,16 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.accessibility.AccessibilityEvent;
+import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeProviderCompat;
 
 import com.example.progressbar.R;
 
@@ -82,6 +87,7 @@ public class CustomProgressBar extends FrameLayout {
     private float currentProgress = 0.25f; // 默认进度25%
     private ValueAnimator animator;
     private int animationDuration = 500; // 默认动画时长500ms
+    private String accessibilityContentDescription; // 无障碍内容描述
 
     /**
      * 构造函数1：仅传入Context
@@ -217,26 +223,29 @@ public class CustomProgressBar extends FrameLayout {
                 animationDuration = typedArray.getInteger(R.styleable.CustomProgressBar_animationDuration, 500);
                 animationDuration = Math.max(0, animationDuration);
                 
-                // 设置进度条模式（这会显示对应的view）
-                setProgressMode(progressMode);
-                
-                // 设置初始进度（根据XML中的animate属性决定是否使用动画）
-                if (animate) {
-                    // 如果XML中设置了animate=true，使用动画
-                    setProgress(currentProgress, true);
-                } else {
-                    // 默认不使用动画，直接设置
-                    setProgress(currentProgress, false);
-                }
-                
-            } finally {
-                typedArray.recycle();
-            }
+        // 设置进度条模式（这会显示对应的view）
+        setProgressMode(progressMode);
+        
+        // 设置初始进度（根据XML中的animate属性决定是否使用动画）
+        if (animate) {
+            // 如果XML中设置了animate=true，使用动画
+            setProgress(currentProgress, true);
         } else {
-            // 如果没有XML属性，使用默认值
-            setProgressMode(progressMode);
+            // 默认不使用动画，直接设置
             setProgress(currentProgress, false);
         }
+        
+    } finally {
+        typedArray.recycle();
+    }
+} else {
+    // 如果没有XML属性，使用默认值
+    setProgressMode(progressMode);
+    setProgress(currentProgress, false);
+}
+
+// 初始化无障碍支持
+initAccessibility();
     }
 
     /**
@@ -465,6 +474,98 @@ public class CustomProgressBar extends FrameLayout {
         } else {
             updateCircularProgress();
         }
+        
+        // 更新无障碍信息
+        updateAccessibilityInfo();
+    }
+
+    /**
+     * 初始化无障碍支持
+     * 
+     * <p><b>功能：</b>设置无障碍相关的属性和监听</p>
+     * 
+     * <p><b>无障碍支持内容：</b></p>
+     * <ul>
+     *   <li>设置内容描述（ContentDescription）</li>
+     *   <li>设置为可访问的View</li>
+     *   <li>支持TalkBack朗读</li>
+     *   <li>支持无障碍事件</li>
+     * </ul>
+     */
+    private void initAccessibility() {
+        // 设置为可访问的View
+        ViewCompat.setAccessibilityDelegate(this, new androidx.core.view.AccessibilityDelegateCompat() {
+            @Override
+            public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfoCompat info) {
+                super.onInitializeAccessibilityNodeInfo(host, info);
+                
+                // 设置角色为进度条
+                info.setClassName(android.widget.ProgressBar.class.getName());
+                
+                // 设置进度信息
+                int progressPercent = (int) (currentProgress * 100);
+                info.setRangeInfo(
+                    AccessibilityNodeInfoCompat.RangeInfoCompat.obtain(
+                        AccessibilityNodeInfoCompat.RangeInfoCompat.RANGE_TYPE_INT,
+                        0f,  // min
+                        100f, // max
+                        (float) progressPercent  // current
+                    )
+                );
+                
+                // 设置内容描述
+                String contentDesc = getAccessibilityContentDescription();
+                if (contentDesc != null && !contentDesc.isEmpty()) {
+                    info.setContentDescription(contentDesc);
+                } else {
+                    // 默认描述
+                    String modeText = progressMode == MODE_LINEAR ? "线性" : "环形";
+                    info.setContentDescription(String.format("%s进度条，当前进度%d%%", modeText, progressPercent));
+                }
+            }
+        });
+        
+        // 设置为重要（不会被忽略）
+        ViewCompat.setImportantForAccessibility(this, ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_YES);
+    }
+
+    /**
+     * 更新无障碍信息
+     * 
+     * <p><b>功能：</b>当进度变化时，更新无障碍信息并发送事件</p>
+     */
+    private void updateAccessibilityInfo() {
+        // 发送无障碍事件，通知屏幕阅读器进度已更新
+        sendAccessibilityEvent(AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED);
+        
+        // 更新内容描述
+        int progressPercent = (int) (currentProgress * 100);
+        String contentDesc = getAccessibilityContentDescription();
+        if (contentDesc == null || contentDesc.isEmpty()) {
+            String modeText = progressMode == MODE_LINEAR ? "线性" : "环形";
+            setContentDescription(String.format("%s进度条，当前进度%d%%", modeText, progressPercent));
+        }
+    }
+
+    /**
+     * 设置无障碍内容描述
+     * 
+     * <p><b>功能：</b>自定义屏幕阅读器朗读的内容</p>
+     * 
+     * <p><b>使用场景：</b>当默认描述不够准确时，可以自定义</p>
+     * 
+     * @param description 内容描述，例如："下载进度，当前50%"
+     */
+    public void setAccessibilityContentDescription(String description) {
+        this.accessibilityContentDescription = description;
+        updateAccessibilityInfo();
+    }
+
+    /**
+     * 获取无障碍内容描述
+     */
+    public String getAccessibilityContentDescription() {
+        return accessibilityContentDescription;
     }
 
     /**

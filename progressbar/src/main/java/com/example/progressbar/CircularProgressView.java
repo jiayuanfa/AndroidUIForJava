@@ -6,9 +6,12 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.accessibility.AccessibilityEvent;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 
 /**
  * 环形进度条View
@@ -52,6 +55,45 @@ public class CircularProgressView extends View {
         progressPaint.setStrokeCap(Paint.Cap.ROUND);
 
         rectF = new RectF();
+        
+        // 初始化无障碍支持
+        initAccessibility();
+    }
+
+    /**
+     * 初始化无障碍支持
+     */
+    private void initAccessibility() {
+        // 设置为可访问的View
+        ViewCompat.setAccessibilityDelegate(this, new androidx.core.view.AccessibilityDelegateCompat() {
+            @Override
+            public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfoCompat info) {
+                super.onInitializeAccessibilityNodeInfo(host, info);
+                
+                // 设置角色为进度条
+                info.setClassName(android.widget.ProgressBar.class.getName());
+                
+                // 设置进度信息
+                int progressPercent = (int) (progress * 100);
+                info.setRangeInfo(
+                    AccessibilityNodeInfoCompat.RangeInfoCompat.obtain(
+                        AccessibilityNodeInfoCompat.RangeInfoCompat.RANGE_TYPE_INT,
+                        0f,
+                        100f,
+                        (float) progressPercent
+                    )
+                );
+                
+                // 设置内容描述
+                CharSequence contentDesc = getContentDescription();
+                if (contentDesc == null || contentDesc.length() == 0) {
+                    setContentDescription(String.format("环形进度条，当前进度%d%%", progressPercent));
+                }
+            }
+        });
+        
+        // 设置为重要（不会被忽略）
+        ViewCompat.setImportantForAccessibility(this, ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_YES);
     }
 
     @Override
@@ -84,6 +126,24 @@ public class CircularProgressView extends View {
     public void setProgress(float progress) {
         this.progress = Math.max(0f, Math.min(1f, progress));
         invalidate();
+        
+        // 更新无障碍信息
+        updateAccessibilityInfo();
+    }
+
+    /**
+     * 更新无障碍信息
+     */
+    private void updateAccessibilityInfo() {
+        // 发送无障碍事件
+        sendAccessibilityEvent(AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED);
+        
+        // 更新内容描述
+        int progressPercent = (int) (progress * 100);
+        CharSequence contentDesc = getContentDescription();
+        if (contentDesc == null || contentDesc.length() == 0) {
+            setContentDescription(String.format("环形进度条，当前进度%d%%", progressPercent));
+        }
     }
 
     /**
