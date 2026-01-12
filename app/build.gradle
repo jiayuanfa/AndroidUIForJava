@@ -50,6 +50,7 @@ dependencies {
     implementation project(':searchbox')
     implementation project(':refreshrecyclerview')
     implementation project(':loading')
+    implementation project(':progressbar')
     
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit

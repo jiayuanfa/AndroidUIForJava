@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="progress_background_color">#E0E0E0</color>
+    <color name="progress_foreground_color">#2196F3</color>
+    <string name="app_name">ProgressBar</string>
+    <declare-styleable name="CustomProgressBar">
+        
+        <attr format="float" name="progress"/>
+        
+        <attr format="enum" name="progressMode">
+            <enum name="linear" value="0"/>
+            <enum name="circular" value="1"/>
+        </attr>
+        
+        <attr format="boolean" name="animate"/>
+        
+        <attr format="integer" name="animationDuration"/>
+    </declare-styleable>
+</resources>

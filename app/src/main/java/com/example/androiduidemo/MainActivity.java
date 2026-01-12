@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnDatePicker;
     private Button btnRefreshRecyclerView;
     private Button btnLoadingTest;
+    private Button btnProgressBarTest;
     private TextView tvSelectedDate;
 
     @Override
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         btnDatePicker = findViewById(R.id.btn_date_picker);
         btnRefreshRecyclerView = findViewById(R.id.btn_refresh_recycler_view);
         btnLoadingTest = findViewById(R.id.btn_loading_test);
+        btnProgressBarTest = findViewById(R.id.btn_progressbar_test);
         tvSelectedDate = findViewById(R.id.tv_selected_date);
     }
 
@@ -118,6 +120,12 @@ public class MainActivity extends AppCompatActivity {
         // Loading组件测试
         btnLoadingTest.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, LoadingTestActivity.class);
+            startActivity(intent);
+        });
+        
+        // 进度条组件测试
+        btnProgressBarTest.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ProgressBarTestActivity.class);
             startActivity(intent);
         });
     }

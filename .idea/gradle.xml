@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/customtoast" />
             <option value="$PROJECT_DIR$/datepicker" />
             <option value="$PROJECT_DIR$/loading" />
+            <option value="$PROJECT_DIR$/progressbar" />
             <option value="$PROJECT_DIR$/refreshrecyclerview" />
             <option value="$PROJECT_DIR$/searchbox" />
           </set>

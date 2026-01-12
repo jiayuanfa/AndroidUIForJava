@@ -480,7 +480,7 @@ private static WeakHashMap<Object, LoadingManager> managerMap = new WeakHashMap<
 - ✅ 使用前检查`null`，安全访问
 - ✅ WeakHashMap自动清理，无需手动管理
 
----
+---56
 
 **希望这个文档能帮助你理解Loading组件！如果还有问题，可以查看日志或查看源代码。** 🎉
 

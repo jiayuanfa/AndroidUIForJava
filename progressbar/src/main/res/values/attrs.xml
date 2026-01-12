@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomProgressBar">
+        <!-- 进度值，范围0-1，默认0.25（25%） -->
+        <attr name="progress" format="float" />
+        <!-- 进度条模式：0=线性，1=环形，默认0 -->
+        <attr name="progressMode" format="enum">
+            <enum name="linear" value="0" />
+            <enum name="circular" value="1" />
+        </attr>
+        <!-- 是否使用动画，默认true -->
+        <attr name="animate" format="boolean" />
+        <!-- 动画时长（毫秒），默认500 -->
+        <attr name="animationDuration" format="integer" />
+    </declare-styleable>
+</resources>
+

@@ -1,0 +1,18 @@
+R_DEF: Internal format may change without notice
+local
+attr? animate
+attr? animationDuration
+attr? progress
+attr? progressMode
+color progress_background_color
+color progress_foreground_color
+drawable progress_background
+drawable progress_foreground
+id circular
+id circular_progress_view
+id linear
+id progress_background
+id progress_foreground
+layout custom_progress_bar
+string app_name
+styleable CustomProgressBar progress progressMode animate animationDuration
