@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 
 /**
  * 懒加载卡片视图组件
- * 
+ *
  * <p><b>功能特性：</b></p>
  * <ul>
  *   <li>使用ViewStub实现布局的懒加载，提升性能</li>
@@ -22,7 +22,7 @@ import androidx.annotation.Nullable;
  *   <li>支持代码动态创建布局并懒加载</li>
  *   <li>自动防止重复加载，确保ViewStub只加载一次</li>
  * </ul>
- * 
+ *
  * <p><b>实现原理：</b></p>
  * <ol>
  *   <li><b>ViewStub懒加载机制：</b>
@@ -47,7 +47,7 @@ import androidx.annotation.Nullable;
  *       </ul>
  *   </li>
  * </ol>
- * 
+ *
  * <p><b>使用示例：</b></p>
  * <pre>
  * // XML中使用
@@ -55,14 +55,14 @@ import androidx.annotation.Nullable;
  *     android:layout_width="match_parent"
  *     android:layout_height="wrap_content"
  *     app:title="卡片标题" /&gt;
- * 
+ *
  * // 代码中使用
  * LazyLoadCardView cardView = findViewById(R.id.card_view);
  * cardView.setTitle("我的卡片");
  * cardView.loadContent();  // 懒加载内容区域
  * cardView.loadActions();  // 懒加载操作区域（可选）
  * </pre>
- * 
+ *
  * @author AndroidUIForJava
  * @version 1.0
  */
@@ -83,38 +83,43 @@ public class LazyLoadCardView extends FrameLayout {
     // 标记是否已加载
     private boolean isContentLoaded = false;
     private boolean isActionsLoaded = false;
-    
+
     /**
      * 构造函数1：仅传入Context
-     * 
+     *
      * <p><b>为什么需要这个构造函数？</b></p>
      * <ul>
      *   <li>当通过代码动态创建View时使用：<code>new LazyLoadCardView(context)</code></li>
      *   <li>Android系统在某些情况下（如View的inflate过程）会调用这个构造函数</li>
      *   <li>这是View类的标准构造函数之一，必须提供以保持兼容性</li>
      * </ul>
+     *
+     * @param context the context
      */
     public LazyLoadCardView(@NonNull Context context) {
         this(context, null);
     }
-    
+
     /**
      * 构造函数2：传入Context和AttributeSet
-     * 
+     *
      * <p><b>为什么需要这个构造函数？</b></p>
      * <ul>
      *   <li>当从XML布局文件中创建View时使用</li>
      *   <li>AttributeSet包含XML中定义的所有属性</li>
      *   <li>这是最常用的构造函数，用于读取XML属性并初始化View</li>
      * </ul>
+     *
+     * @param context the context
+     * @param attrs   the attrs
      */
     public LazyLoadCardView(@NonNull Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
-    
+
     /**
      * 构造函数3：传入Context、AttributeSet和defStyleAttr
-     * 
+     *
      * <p><b>为什么需要这个构造函数？</b></p>
      * <ul>
      *   <li>当需要应用主题样式时使用</li>
@@ -122,6 +127,10 @@ public class LazyLoadCardView extends FrameLayout {
      *   <li>允许View从主题中获取默认样式，提供更好的样式继承机制</li>
      *   <li>这是最完整的构造函数，支持所有初始化场景</li>
      * </ul>
+     *
+     * @param context      the context
+     * @param attrs        the attrs
+     * @param defStyleAttr the def style attr
      */
     public LazyLoadCardView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -147,30 +156,26 @@ public class LazyLoadCardView extends FrameLayout {
         
         Log.d(TAG, "[初始化] init() - LazyLoadCardView初始化完成，ViewStub已准备就绪");
     }
+
     
-    /**
-     * 设置标题
-     * 
-     * @param title 标题文本
-     */
     public void setTitle(String title) {
         if (titleView != null) {
             titleView.setText(title);
             Log.d(TAG, "[设置] setTitle() - 标题设置为: " + title);
         }
     }
-    
+
     /**
      * 懒加载内容区域
      * 使用ViewStub的inflate()方法加载布局
-     * 
+     *
      * <p><b>最佳实践：</b></p>
      * <ul>
      *   <li>在真正需要显示内容时才调用此方法</li>
      *   <li>方法内部会自动检查是否已加载，避免重复加载</li>
      *   <li>加载后，ViewStub会被替换为实际View，ViewStub本身会从视图树中移除</li>
      * </ul>
-     * 
+     *
      * @return 加载后的内容View，如果已加载则返回之前加载的View
      */
     public View loadContent() {
@@ -211,10 +216,10 @@ public class LazyLoadCardView extends FrameLayout {
             return null;
         }
     }
-    
+
     /**
      * 懒加载操作区域（可选）
-     * 
+     *
      * @return 加载后的操作View，如果已加载则返回之前加载的View
      */
     public View loadActions() {
@@ -251,17 +256,17 @@ public class LazyLoadCardView extends FrameLayout {
             return null;
         }
     }
-    
+
     /**
      * 使用代码动态创建布局并懒加载
-     * 
+     *
      * <p><b>最佳实践：</b></p>
      * <ul>
      *   <li>当布局需要根据数据动态生成时使用此方法</li>
      *   <li>避免在XML中定义大量可能不使用的布局</li>
      *   <li>在真正需要时才创建View，节省内存和初始化时间</li>
      * </ul>
-     * 
+     *
      * @param layoutResId 要加载的布局资源ID
      * @return 加载后的View
      */
@@ -303,40 +308,40 @@ public class LazyLoadCardView extends FrameLayout {
             return null;
         }
     }
-    
+
     /**
      * 检查内容区域是否已加载
-     * 
+     *
      * @return true表示已加载，false表示未加载
      */
     public boolean isContentLoaded() {
         return isContentLoaded;
     }
-    
+
     /**
      * 检查操作区域是否已加载
-     * 
+     *
      * @return true表示已加载，false表示未加载
      */
     public boolean isActionsLoaded() {
         return isActionsLoaded;
     }
-    
+
     /**
      * 获取已加载的内容View
      * 如果未加载，返回null
-     * 
+     *
      * @return 内容View或null
      */
     @Nullable
     public View getContentView() {
         return loadedContentView;
     }
-    
+
     /**
      * 获取已加载的操作View
      * 如果未加载，返回null
-     * 
+     *
      * @return 操作View或null
      */
     @Nullable
