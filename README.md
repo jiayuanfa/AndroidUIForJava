@@ -15,6 +15,7 @@
 | **RefreshRecyclerView** | 下拉刷新和上拉加载更多的RecyclerView | [技术文档](refreshrecyclerview/技术文档_刷新组件原理.md) |
 | **Loading** | Loading加载组件，支持Activity/Fragment/View，自动管理内存 | [使用文档](loading/README.md) \| [技术文档](loading/技术文档_Loading组件原理.md) |
 | **ProgressBar** | 进度条组件，支持线性和环形两种模式，带动画效果 | [使用文档](progressbar/README.md) \| [技术文档](progressbar/技术文档_ProgressBar组件原理.md) |
+| **LazyLoadView** | ViewStub懒加载组件，演示布局懒加载最佳实践 | [使用文档](lazyloadview/README.md) \| [技术文档](lazyloadview/技术文档_ViewStub懒加载最佳实践.md) |
 
 ## 🚀 快速开始
 
@@ -91,6 +92,33 @@ progressBar.setProgressMode(CustomProgressBar.MODE_CIRCULAR);  // 切换到环�
 ```
 
 **详细文档：** [ProgressBar组件文档](progressbar/README.md)
+
+### LazyLoadView组件
+
+**功能：** 使用ViewStub实现布局懒加载，提升应用性能
+
+**特点：**
+- ✅ 使用ViewStub延迟加载布局，减少初始内存占用
+- ✅ 支持代码动态创建布局并懒加载
+- ✅ 自动防止重复加载，确保ViewStub只加载一次
+- ✅ 提供完整的生命周期日志
+
+**使用示例：**
+```java
+LazyLoadCardView cardView = findViewById(R.id.card_view);
+cardView.setTitle("我的卡片");
+
+// 懒加载内容区域（只有在需要时才加载）
+cardView.loadContent();
+
+// 懒加载操作区域（可选）
+cardView.loadActions();
+
+// 代码动态加载布局
+cardView.loadContentFromCode(R.layout.my_custom_layout);
+```
+
+**详细文档：** [LazyLoadView组件文档](lazyloadview/README.md)
 
 ### CustomDialog组件
 

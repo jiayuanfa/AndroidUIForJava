@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="#F5F5F5"
+    android:minHeight="100dp">
+
+    <TextView
+        android:id="@+id/tv_content_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="内容标题"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tv_content_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="这是懒加载的内容区域。只有当调用loadContent()时，这个布局才会被真正加载到内存中。"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:lineSpacingMultiplier="1.2" />
+
+    <!-- 可以添加更多复杂的内容，比如图片、列表等 -->
+    <ImageView
+        android:id="@+id/iv_content_image"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="12dp"
+        android:scaleType="centerCrop"
+        android:background="#E0E0E0"
+        android:contentDescription="内容图片" />
+
+</LinearLayout>
+

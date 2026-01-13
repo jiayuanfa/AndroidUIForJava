@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnLoadingTest;
     private Button btnProgressBarTest;
     private Button btnAccessibilityTest;
+    private Button btnLazyLoadTest;
     private TextView tvSelectedDate;
 
     @Override
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         btnLoadingTest = findViewById(R.id.btn_loading_test);
         btnProgressBarTest = findViewById(R.id.btn_progressbar_test);
         btnAccessibilityTest = findViewById(R.id.btn_accessibility_test);
+        btnLazyLoadTest = findViewById(R.id.btn_lazyload_test);
         tvSelectedDate = findViewById(R.id.tv_selected_date);
     }
 
@@ -134,6 +136,12 @@ public class MainActivity extends AppCompatActivity {
         // 无障碍功能测试
         btnAccessibilityTest.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AccessibilityTestActivity.class);
+            startActivity(intent);
+        });
+        
+        // ViewStub懒加载测试
+        btnLazyLoadTest.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, LazyLoadTestActivity.class);
             startActivity(intent);
         });
     }

@@ -1,0 +1,16 @@
+R_DEF: Internal format may change without notice
+local
+id actions_container
+id btn_cancel
+id btn_confirm
+id content_container
+id iv_content_image
+id tv_content_text
+id tv_content_title
+id tv_title
+id vs_actions
+id vs_content
+layout card_actions_layout
+layout card_content_layout
+layout lazy_load_card_view
+string app_name

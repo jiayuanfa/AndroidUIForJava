@@ -50,6 +50,13 @@
             android:label="无障碍功能测试"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName=".MainActivity" />
+        
+        <activity
+            android:name=".LazyLoadTestActivity"
+            android:exported="false"
+            android:label="ViewStub懒加载测试"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>
