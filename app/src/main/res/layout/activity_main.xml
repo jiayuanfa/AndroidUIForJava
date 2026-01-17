@@ -161,6 +161,70 @@
             android:text="测试折叠屏小窗组件"
             android:layout_marginBottom="24dp" />
 
+        <!-- Loading组件测试 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading组件："
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_loading_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试Loading组件"
+            android:layout_marginBottom="24dp" />
+
+        <!-- 进度条组件测试 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="进度条组件："
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_progressbar_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试进度条组件"
+            android:layout_marginBottom="24dp" />
+
+        <!-- 无障碍功能测试 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="无障碍功能："
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_accessibility_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试无障碍功能"
+            android:layout_marginBottom="24dp" />
+
+        <!-- ViewStub懒加载测试 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ViewStub懒加载："
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_lazyload_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试ViewStub懒加载"
+            android:layout_marginBottom="24dp" />
+
     </LinearLayout>
 
 </ScrollView>

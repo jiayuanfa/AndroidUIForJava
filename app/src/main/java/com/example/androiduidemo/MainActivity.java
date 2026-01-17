@@ -25,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     private Button btnDatePicker;
     private Button btnRefreshRecyclerView;
     private Button btnFoldPadWindow;
+    private Button btnLoadingTest;
+    private Button btnProgressBarTest;
+    private Button btnAccessibilityTest;
+    private Button btnLazyLoadTest;
     private TextView tvSelectedDate;
 
     @Override
@@ -46,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
         btnDatePicker = findViewById(R.id.btn_date_picker);
         btnRefreshRecyclerView = findViewById(R.id.btn_refresh_recycler_view);
         btnFoldPadWindow = findViewById(R.id.btn_fold_pad_window);
+        btnLoadingTest = findViewById(R.id.btn_loading_test);
+        btnProgressBarTest = findViewById(R.id.btn_progressbar_test);
+        btnAccessibilityTest = findViewById(R.id.btn_accessibility_test);
+        btnLazyLoadTest = findViewById(R.id.btn_lazyload_test);
         tvSelectedDate = findViewById(R.id.tv_selected_date);
     }
 
@@ -114,11 +122,34 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, RefreshRecyclerViewTestActivity.class);
             startActivity(intent);
         });
-
         // 折叠屏/Pad 小窗组件测试
         btnFoldPadWindow.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this,
                     com.example.androiduidemo.fold.FoldPadWindowTestActivity.class);
+            startActivity(intent);
+        });
+
+        // Loading组件测试
+        btnLoadingTest.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, LoadingTestActivity.class);
+            startActivity(intent);
+        });
+
+        // 进度条组件测试
+        btnProgressBarTest.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ProgressBarTestActivity.class);
+            startActivity(intent);
+        });
+
+        // 无障碍功能测试
+        btnAccessibilityTest.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AccessibilityTestActivity.class);
+            startActivity(intent);
+        });
+
+        // ViewStub懒加载测试
+        btnLazyLoadTest.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, LazyLoadTestActivity.class);
             startActivity(intent);
         });
     }

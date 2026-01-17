@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="16dp">
+
+    <!-- 标题区域 - 立即加载 -->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="卡片标题"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:paddingBottom="12dp" />
+
+    <!-- 内容区域 - ViewStub懒加载 -->
+    <ViewStub
+        android:id="@+id/vs_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout="@layout/card_content_layout" />
+
+    <!-- 操作区域 - ViewStub懒加载（可选） -->
+    <ViewStub
+        android:id="@+id/vs_actions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout="@layout/card_actions_layout" />
+
+</LinearLayout>
+

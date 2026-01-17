@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="进度条组件测试"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp" />
+
+        <!-- 基础测试 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. 基础进度条测试（XML设置默认25%）："
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <com.example.progressbar.CustomProgressBar
+            android:id="@+id/progress_bar_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:progress="0.25"
+            app:progressMode="linear"
+            android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <Button
+                android:id="@+id/btn_progress_0"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0%"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_progress_25"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="25%"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_progress_50"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="50%"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_progress_100"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="100%" />
+
+        </LinearLayout>
+
+        <!-- 动画测试 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. 动画效果测试（XML设置50%）："
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <com.example.progressbar.CustomProgressBar
+            android:id="@+id/progress_bar_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:progress="0.5"
+            app:animate="false"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btn_animate_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="从0%动画到100%"
+            android:layout_marginBottom="24dp" />
+
+        <!-- 无动画测试 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. 无动画测试："
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <com.example.progressbar.CustomProgressBar
+            android:id="@+id/progress_bar_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btn_no_animate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="无动画设置到50%"
+            android:layout_marginBottom="24dp" />
+
+        <!-- 自定义动画时长测试 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4. 自定义动画时长测试："
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <com.example.progressbar.CustomProgressBar
+            android:id="@+id/progress_bar_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <Button
+                android:id="@+id/btn_fast_animate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="快速(200ms)"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_slow_animate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="慢速(2000ms)" />
+
+        </LinearLayout>
+
+        <!-- 连续动画测试 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5. 连续动画测试："
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <com.example.progressbar.CustomProgressBar
+            android:id="@+id/progress_bar_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btn_continuous_animate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="连续动画：0% → 25% → 50% → 75% → 100%"
+            android:layout_marginBottom="24dp" />
+
+        <!-- 当前进度显示 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前进度值："
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tv_progress_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0.00"
+            android:textSize="18sp"
+            android:textColor="#2196F3"
+            android:padding="12dp"
+            android:background="#F5F5F5"
+            android:layout_marginBottom="24dp" />
+
+        <!-- 环形进度条测试 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6. 环形进度条测试（XML设置75%）："
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <com.example.progressbar.CustomProgressBar
+            android:id="@+id/progress_bar_circular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:progress="0.75"
+            app:progressMode="circular"
+            app:animate="false"
+            android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <Button
+                android:id="@+id/btn_switch_mode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="切换到环形"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_circular_animate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="环形动画测试" />
+
+        </LinearLayout>
+
+        <!-- 说明 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="说明：\n1. 进度值范围：0-1（0表示0%，1表示100%）\n2. 默认动画时长：500ms\n3. 支持自定义动画时长\n4. 支持无动画直接设置\n5. 连续设置会自动取消之前的动画\n6. 支持线性和环形两种模式"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:background="#F5F5F5"
+            android:padding="12dp" />
+
+    </LinearLayout>
+
+</ScrollView>
+

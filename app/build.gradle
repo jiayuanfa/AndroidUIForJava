@@ -50,7 +50,10 @@ dependencies {
     implementation project(':searchbox')
     implementation project(':refreshrecyclerview')
     implementation project(':foldwindow')
-    
+    implementation project(':loading')
+    implementation project(':progressbar')
+    implementation project(':lazyloadview')
+
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core

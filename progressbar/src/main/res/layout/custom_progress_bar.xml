@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- 线性进度条 - 背景层 -->
+    <View
+        android:id="@+id/progress_background"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@drawable/progress_background" />
+
+    <!-- 线性进度条 - 进度条层 -->
+    <View
+        android:id="@+id/progress_foreground"
+        android:layout_width="0dp"
+        android:layout_height="8dp"
+        android:background="@drawable/progress_foreground" />
+
+    <!-- 环形进度条 -->
+    <com.example.progressbar.CircularProgressView
+        android:id="@+id/circular_progress_view"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+</FrameLayout>
+
