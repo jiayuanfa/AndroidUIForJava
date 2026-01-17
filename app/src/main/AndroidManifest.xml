@@ -29,6 +29,13 @@
             android:label="RefreshRecyclerView测试"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".fold.FoldPadWindowTestActivity"
+            android:exported="false"
+            android:label="折叠屏小窗测试"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

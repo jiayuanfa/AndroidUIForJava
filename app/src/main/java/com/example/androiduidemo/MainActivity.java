@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnToastWarning;
     private Button btnDatePicker;
     private Button btnRefreshRecyclerView;
+    private Button btnFoldPadWindow;
     private TextView tvSelectedDate;
 
     @Override
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         btnToastWarning = findViewById(R.id.btn_toast_warning);
         btnDatePicker = findViewById(R.id.btn_date_picker);
         btnRefreshRecyclerView = findViewById(R.id.btn_refresh_recycler_view);
+        btnFoldPadWindow = findViewById(R.id.btn_fold_pad_window);
         tvSelectedDate = findViewById(R.id.tv_selected_date);
     }
 
@@ -110,6 +112,13 @@ public class MainActivity extends AppCompatActivity {
         // 刷新RecyclerView测试
         btnRefreshRecyclerView.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, RefreshRecyclerViewTestActivity.class);
+            startActivity(intent);
+        });
+
+        // 折叠屏/Pad 小窗组件测试
+        btnFoldPadWindow.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this,
+                    com.example.androiduidemo.fold.FoldPadWindowTestActivity.class);
             startActivity(intent);
         });
     }
