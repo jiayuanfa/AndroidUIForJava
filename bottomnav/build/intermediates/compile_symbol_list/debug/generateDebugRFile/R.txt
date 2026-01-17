@@ -1,0 +1,13 @@
+int attr indicatorColor 0x0
+int attr indicatorHeight 0x0
+int attr indicatorVisible 0x0
+int attr selectedColor 0x0
+int attr textSize 0x0
+int attr unselectedColor 0x0
+int[] styleable BottomNavBar { 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 }
+int styleable BottomNavBar_indicatorColor 0
+int styleable BottomNavBar_indicatorHeight 1
+int styleable BottomNavBar_indicatorVisible 2
+int styleable BottomNavBar_selectedColor 3
+int styleable BottomNavBar_textSize 4
+int styleable BottomNavBar_unselectedColor 5

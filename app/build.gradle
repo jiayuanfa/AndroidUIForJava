@@ -53,6 +53,7 @@ dependencies {
     implementation project(':loading')
     implementation project(':progressbar')
     implementation project(':lazyloadview')
+    implementation project(':bottomnav')
 
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit

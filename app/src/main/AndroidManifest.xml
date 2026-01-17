@@ -64,6 +64,13 @@
             android:label="ViewStub懒加载测试"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".BottomNavTestActivity"
+            android:exported="false"
+            android:label="底部导航栏测试"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

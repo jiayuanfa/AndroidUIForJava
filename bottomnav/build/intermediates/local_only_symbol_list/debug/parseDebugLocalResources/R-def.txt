@@ -1,0 +1,9 @@
+R_DEF: Internal format may change without notice
+local
+attr? indicatorColor
+attr? indicatorHeight
+attr? indicatorVisible
+attr? selectedColor
+attr? textSize
+attr? unselectedColor
+styleable BottomNavBar indicatorVisible indicatorHeight selectedColor unselectedColor indicatorColor textSize

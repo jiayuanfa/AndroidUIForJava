@@ -1,0 +1,8 @@
+com.example.bottomnav
+attr indicatorColor
+attr indicatorHeight
+attr indicatorVisible
+attr selectedColor
+attr textSize
+attr unselectedColor
+styleable BottomNavBar indicatorColor indicatorHeight indicatorVisible selectedColor textSize unselectedColor

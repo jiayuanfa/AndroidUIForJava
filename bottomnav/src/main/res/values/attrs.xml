@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BottomNavBar">
+        <attr name="indicatorVisible" format="boolean" />
+        <attr name="indicatorHeight" format="dimension" />
+        <attr name="selectedColor" format="color" />
+        <attr name="unselectedColor" format="color" />
+        <attr name="indicatorColor" format="color" />
+        <attr name="textSize" format="dimension" />
+    </declare-styleable>
+</resources>

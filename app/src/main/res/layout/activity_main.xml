@@ -225,6 +225,22 @@
             android:text="测试ViewStub懒加载"
             android:layout_marginBottom="24dp" />
 
+        <!-- 底部导航栏组件测试 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="底部导航栏组件："
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_bottom_nav_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试底部导航栏组件"
+            android:layout_marginBottom="24dp" />
+
     </LinearLayout>
 
 </ScrollView>
